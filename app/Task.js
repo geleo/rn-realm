@@ -11,7 +11,7 @@ export class Task extends Realm.Object {
     name: "Task",
     primaryKey: "_id",
     properties: {
-      _id: 'uuid',
+      _id: 'objectId',
       description: "string",
       createdAt: {
         type: "date",
@@ -28,8 +28,9 @@ export class Task extends Realm.Object {
   constructor(realm, description) {
     console.log("in constructor");
     super(realm, {
-      _id: new BSON.UUID(),
+      _id:  new Realm.BSON.ObjectId(),
       description,
     });
   }
 }
+
